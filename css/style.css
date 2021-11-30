@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+/********** Colors **********/
+/********** Primary **********/
+/********** Neutral **********/
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../images/bg-mobile.png") center/cover no-repeat;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+  padding: 9em 1.5em;
+}
+main .container {
+  background-color: #1d2c67;
+  border-radius: 1em;
+  padding: 2.75em;
+  width: 100%;
+  max-width: 400px;
+}
+main .menu {
+  border-top-right-radius: 8em;
+}
+main .menu .logo {
+  display: block;
+  margin-bottom: 2.25em;
+}
+main .menu__buttons {
+  display: flex;
+  gap: 1em;
+}
+main .menu__buttons button:first-child {
+  background: url("../images/icon-document.svg") center/20px no-repeat;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #0c122c;
+  border-radius: 1em;
+}
+main .menu__buttons button:nth-child(2) {
+  background: url("../images/icon-folder.svg") center/20px no-repeat;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #0c122c;
+  border-radius: 1em;
+}
+main .menu__buttons button:last-child {
+  background: url("../images/icon-upload.svg") center/20px no-repeat;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #0c122c;
+  border-radius: 1em;
+}
+main .storage {
+  color: #dddbff;
+  position: relative;
+  text-align: center;
+  padding-bottom: 3.5em;
+}
+main .storage__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  padding-top: 1em;
+}
+main .storage__progress__bar {
+  background-color: #0c122c;
+  border-radius: 2em;
+  height: 1.25em;
+  display: flex;
+  align-items: center;
+  padding: 0.2em;
+}
+main .storage__progress__bar__fill {
+  border-radius: 2em;
+  background: linear-gradient(#ffa399, #ff4d97);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 75%;
+  height: 100%;
+  padding: 0.1em;
+}
+main .storage__progress__bar__fill::after {
+  content: "";
+  background-color: white;
+  display: block;
+  height: 100%;
+  width: 9px;
+  border-radius: 50%;
+}
+main .storage__label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+main .storage__remaining {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  padding: 1em 1.75em;
+  border-radius: 1em;
+}
+main .storage__remaining span {
+  font-weight: 700;
+}
+main .storage__remaining span:first-child {
+  font-size: 2.25rem;
+  color: #0c122c;
+}
+main .storage__remaining span:last-child {
+  font-size: 0.75rem;
+  color: #848794;
+}
+
+.attribution {
+  color: white;
+}
+.attribution a:link {
+  background: linear-gradient(#ffa399, #ff4d97);
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 1000px) {
+  body {
+    background: url("../images/bg-mobile.png") center/cover no-repeat;
+  }
+
+  main {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.5em;
+  }
+  main .storage {
+    max-width: 700px;
+  }
+  main .storage__remaining {
+    top: 0;
+    left: auto;
+    bottom: auto;
+    right: 2.75em;
+    transform: translate(0, -65%);
+    border-bottom-right-radius: 0;
+  }
+  main .storage__remaining::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 0.75em solid white;
+    border-right: 0.75em solid white;
+    border-bottom: 0.75em solid transparent;
+    border-left: 0.75em solid transparent;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(90%);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

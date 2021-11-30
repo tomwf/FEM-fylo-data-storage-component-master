@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+/********** Colors **********/
+/********** Primary **********/
+$gradient: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+/********** Neutral **********/
+$pale-blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+$white: hsl(0, 0%, 100%);
+$round-corner: 1em;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('../images/bg-mobile.png') center/cover no-repeat;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+  padding: 9em 1.5em;
+
+  .container {
+    background-color: $dark-blue;
+    border-radius: $round-corner;
+    padding: 2.75em;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .menu {
+    border-top-right-radius: 8em;
+
+    .logo {
+      display: block;
+      margin-bottom: 2.25em;
+    }
+
+    &__buttons {
+      @mixin button($icon-url) {
+        background: url($icon-url) center/20px no-repeat;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        background-color: $very-dark-blue;
+        border-radius: 1em;
+      }
+      display: flex;
+      gap: 1em;
+
+      button:first-child {
+        @include button('../images/icon-document.svg');
+      }
+
+      button:nth-child(2) {
+        @include button('../images/icon-folder.svg');
+      }
+
+      button:last-child {
+        @include button('../images/icon-upload.svg');
+      }
+    }
+  }
+
+  .storage {
+    color: $pale-blue;
+    position: relative;
+    text-align: center;
+    padding-bottom: 3.5em;
+
+    &__progress {
+      display: flex;
+      flex-direction: column;
+      gap: .7em;
+      padding-top: 1em;
+
+      &__bar {
+        background-color: $very-dark-blue;
+        border-radius: 2em;
+        height: 1.25em;
+        display: flex;
+        align-items: center;
+        padding: .2em;
+
+        &__fill {
+          border-radius: 2em;
+          background: $gradient;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          width: 75%;
+          height: 100%;
+          padding: .1em;
+
+          &::after {
+            content: '';
+            background-color: $white;
+            display: block;
+            height: 100%;
+            width: 9px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    &__label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+    }
+
+    &__remaining {
+      background-color: $white;
+      display: flex;
+      align-items: center;
+      gap: .5em;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 50%);
+      padding: 1em 1.75em;
+      border-radius: $round-corner;
+
+      span {
+        font-weight: 700;
+
+        &:first-child {
+          font-size: 2.25rem;
+          color: $very-dark-blue;
+        }
+
+        &:last-child {
+          font-size: .75rem;
+          color: $grayish-blue;
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  color: $white;
+
+  a:link {
+    background: $gradient;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@media (min-width: 1000px) {
+
+  body {
+    background: url('../images/bg-mobile.png') center/cover no-repeat;
+  }
+
+  main {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.5em;
+
+    .storage {
+      max-width: 700px;
+
+      &__remaining {
+        top: 0;
+        left: auto;
+        bottom: auto;
+        right: 2.75em;
+        transform: translate(0, -65%);
+        border-bottom-right-radius: 0;
+
+        &::after {
+          content: '';
+          width: 0;
+          height: 0;
+          border-top: .75em solid $white;
+          border-right: .75em solid $white;
+          border-bottom: .75em solid transparent;
+          border-left: .75em solid transparent;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          transform: translateY(90%);
+        }
+      }
+    }
+  }
+}
